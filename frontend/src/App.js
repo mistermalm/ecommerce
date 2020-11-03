@@ -1,20 +1,23 @@
 import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import HomeView from './views/HomeView.js'
+import ProductView from './views/ProductView.js'
 
 const App = () => {
   return (
-    <div className='App'>
+    <Router>
       <Header />
       <main className='py-3'>
         <Container>
-          <HomeView />
+          <Route path='/' component={HomeView} exact />
+          <Route path='/product/:id' component={ProductView} />
         </Container>
       </main>
       <Footer />
-    </div>
+    </Router>
   )
 }
 
