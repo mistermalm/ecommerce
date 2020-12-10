@@ -4,6 +4,8 @@ import { Row, Col } from 'react-bootstrap'
 
 import Product from '../components/Product.js'
 import { listProducts } from '../actions/productActions.js'
+import Loader from '../components/Loader.js'
+import Message from '../components/Message.js'
 
 const HomeView = () => {
   const dispatch = useDispatch()
@@ -19,9 +21,9 @@ const HomeView = () => {
     <>
       <h1>Latest Products</h1>
       {loading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : error ? (
-        <h3>{error}</h3>
+        <Message variant='danger'>{error}</Message>
       ) : (
         <Col>
           <Row>
