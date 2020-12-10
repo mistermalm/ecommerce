@@ -24,7 +24,9 @@ router.get(
     if (product) {
       res.json(product)
     } else {
-      res.status(404).json({ message: 'Product not found' })
+      res.status(404)
+      // using the middleware error handler (which overrides the default one)
+      throw new Error('Product not found')
     }
   })
 )
