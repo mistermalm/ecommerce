@@ -1,0 +1,33 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "MERN",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mistermalm/ecommerce.git"
+  },
+  "keywords": [
+    "MERN",
+    "ecommerce"
+  ],
+  "author": "Jonatan Malm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mistermalm/ecommerce/issues"
+  },
+  "homepage": "https://github.com/mistermalm/ecommerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
