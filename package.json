@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "MERN",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "server": "nodemon backend/server",
     "client": "npm start --prefix frontend",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/mistermalm/ecommerce#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
