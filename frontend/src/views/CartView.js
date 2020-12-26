@@ -15,12 +15,12 @@ const CartView = ({ match, location, history }) => {
 
   const { cartItems } = useSelector((state) => state.cart)
 
-  useEffect(() => {
-    // will not always be a id in the cart..
-    if (productId) {
-      dispatch(addToCart(productId, quantity))
-    }
-  }, [dispatch, productId, quantity])
+  //   useEffect(() => {
+  //     // will not always be a id in the cart..
+  //     if (productId) {
+  //       dispatch(addToCart(productId, quantity))
+  //     }
+  //   }, [dispatch, productId, quantity])
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id))

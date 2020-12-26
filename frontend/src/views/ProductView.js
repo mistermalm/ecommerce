@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProductsDetails } from '../actions/productActions.js'
+import { addToCart, removeFromCart } from '../actions/cartActions.js'
 import Rating from '../components/Rating.js'
 import Loader from '../components/Loader.js'
 import Message from '../components/Message.js'
@@ -14,13 +15,18 @@ const ProductView = ({ history, match }) => {
 
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
+  const productId = match.params.id
 
   useEffect(() => {
-    dispatch(listProductsDetails(match.params.id))
+    dispatch(listProductsDetails(productId))
   }, [dispatch, match])
 
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${quantity}`)
+    if (productId) {
+      dispatch(addToCart(productId, quantity))
+      history.push(`/cart/${productId}?qty=${quantity}`)
+      history.replace('/cart')
+    }
   }
 
   return (
