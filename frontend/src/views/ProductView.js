@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProductsDetails } from '../actions/productActions.js'
-import { addToCart, removeFromCart } from '../actions/cartActions.js'
+import { addToCart } from '../actions/cartActions.js'
 import Rating from '../components/Rating.js'
 import Loader from '../components/Loader.js'
 import Message from '../components/Message.js'
@@ -19,7 +19,7 @@ const ProductView = ({ history, match }) => {
 
   useEffect(() => {
     dispatch(listProductsDetails(productId))
-  }, [dispatch, match])
+  }, [dispatch, productId])
 
   const addToCartHandler = () => {
     if (productId) {

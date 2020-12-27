@@ -1,26 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message.js'
 import { addToCart, removeFromCart } from '../actions/cartActions.js'
 
-const CartView = ({ match, location, history }) => {
-  const productId = match.params.id
-  // using query params to get quantity // expected output if quantity = 1 --> ?qty=1
-  // then split the the param and convert it to a number, to get the actual quantity, else just set it to 1
-  const quantity = location.search ? Number(location.search.split('=')[1]) : 1
-
+const CartView = ({ history }) => {
   const dispatch = useDispatch()
 
   const { cartItems } = useSelector((state) => state.cart)
-
-  //   useEffect(() => {
-  //     // will not always be a id in the cart..
-  //     if (productId) {
-  //       dispatch(addToCart(productId, quantity))
-  //     }
-  //   }, [dispatch, productId, quantity])
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id))
