@@ -26,7 +26,6 @@ const LoginView = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-
     dispatch(login(email, password))
   }
 
